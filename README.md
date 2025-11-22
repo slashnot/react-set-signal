@@ -170,11 +170,12 @@ $user.set((current) => ({ ...current, age: current.age + 1 }));
 The library also re-exports core Preact Signals functionality:
 
 ```javascript
-import { signal, effect } from 'react-set-signal';
+import { signal, effect, computed } from 'react-set-signal';
 ```
 
 - `signal(initialValue)` - Create a standard Preact Signal
 - `effect(fn)` - Create an effect that runs when signals change
+- `computed(fn)` - Create a derived signal that automatically updates when its dependencies change
 
 ## Advanced Usage
 
@@ -235,6 +236,7 @@ setState((draft) => {
 
 Use Preact's `effect` for side effects:
 
+**Example with effect:**
 ```javascript
 import { createSignal, effect } from 'react-set-signal';
 
@@ -245,6 +247,29 @@ effect(() => {
   console.log('Count changed:', $count.value);
   document.title = `Count: ${$count.value}`;
 });
+```
+
+Use Preact's `computed` for computed values:
+
+**Example with computed:**
+
+```javascript
+import { createSignal, computed, useReactiveSignal } from 'react-set-signal';
+
+const $firstName = createSignal('John');
+const $lastName = createSignal('Doe');
+
+// Computed signal: automatically updates when firstName or lastName changes
+const $fullName = computed(() => `${$firstName.value} ${$lastName.value}`);
+
+function Profile() {
+  const fullName = useReactiveSignal($fullName);
+  return <h1>{fullName}</h1>;
+}
+
+// Update signals
+$firstName.set('Jane');
+// $fullName automatically recomputes to "Jane Doe"
 ```
 
 ## How It Works
