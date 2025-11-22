@@ -1,0 +1,54 @@
+{
+  "name": "react-set-signal",
+  "version": "1.0.2",
+  "description": "A lightweight React library that brings the power of Preact Signals to React applications with enhanced features and an intuitive API.",
+  "keywords": [
+    "react",
+    "signals",
+    "state-management",
+    "preact-signals",
+    "reactive",
+    "reactivity",
+    "hooks",
+    "state",
+    "lightweight",
+    "performance",
+    "immutable",
+    "mutative"
+  ],
+  "author": "Ramkumar K",
+  "email": "slashnot84@gmail.com",
+  "homepage": "https://slashnot.github.io/react-set-signal",
+  "main": "./dist/reactSetSignal.js",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "import": {
+        "production": "./dist/reactSetSignal.js",
+        "default": "./index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "predeploy": "cd examples/react-set-signal-example && pnpm run build",
+    "deploy": "npx gh-pages -d examples/react-set-signal-example/dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "packageManager": "pnpm@10.23.0",
+  "dependencies": {
+    "@preact/signals-core": "^1.10.0",
+    "gh-pages": "^6.3.0",
+    "mutative": "^1.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "peerDependencies": {
+    "@preact/signals-core": "^1.10.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.5"
+  }
+}
