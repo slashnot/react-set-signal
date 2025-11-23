@@ -13,8 +13,8 @@ export const getSignalValue = ($signal, fnOrValue) => {
             if (isDraft(result)) {
                 return draft
             }
-            // fnOrValue is a funtion that returned a value, not used the draft
-            if (typeof result === 'object') {
+            // fnOrValue is a funtion that returned an object, not used the draft
+            if (typeof result === 'object' && !isDraft(result)) {
                 return rawReturn(result)
             }
 
