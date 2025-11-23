@@ -1,5 +1,4 @@
 import { describe, it, expect, vi } from 'vitest'
-import { signal } from '@preact/signals-core'
 import { createSignal, setSignal, getSignalValue } from '../utils/createSignal'
 
 describe('createSignal', () => {
