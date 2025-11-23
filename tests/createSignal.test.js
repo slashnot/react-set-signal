@@ -79,12 +79,12 @@ describe('setSignal', () => {
         { id: 2, name: 'Bob', posts: [] }
       ]
     })
-    
+
     setSignal($signal, (draft) => {
       const user = draft.users.find(u => u.id === 1)
       user.posts.push({ id: 101, title: 'First Post' })
     })
-    
+
     expect($signal.value.users[0].posts).toHaveLength(1)
     expect($signal.value.users[0].posts[0].title).toBe('First Post')
   })
@@ -92,11 +92,11 @@ describe('setSignal', () => {
   it('should preserve immutability - original object not modified', () => {
     const original = { count: 0 }
     const $signal = createSignal(original)
-    
+
     setSignal($signal, (draft) => {
       draft.count = 10
     })
-    
+
     expect(original.count).toBe(0)
     expect($signal.value.count).toBe(10)
   })
@@ -148,6 +148,16 @@ describe('createSignal .set method', () => {
     expect($signal.value.count).toBe(20)
   })
 
+  it('should update value using .set method with an object', () => {
+    const $signal = createSignal({ count: 0, name: 'test' })
+    $signal.set(() => ({
+      count: 20,
+      name:'updated'
+    }))
+    expect($signal.value.count).toBe(20)
+    expect($signal.value.name).toBe('updated')
+  })
+
   it('should chain .set calls with direct values', () => {
     const $signal = createSignal(0)
     $signal.set(10)
@@ -163,11 +173,11 @@ describe('createSignal .set method', () => {
         preferences: { theme: 'light' }
       }
     })
-    
+
     $signal.set((draft) => {
       draft.profile.preferences.theme = 'dark'
     })
-    
+
     expect($signal.value.profile.preferences.theme).toBe('dark')
   })
 })
