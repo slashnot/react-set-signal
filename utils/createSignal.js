@@ -8,16 +8,10 @@ export const getSignalValue = ($signal, fnOrValue) => {
     if (typeof fnOrValue === 'function') {
         const mutationResponse = create($signal.value, (draft) => {
             const result = fnOrValue(draft)
-
-            // fnOrValue is a funtion that used the draft
-            if (isDraft(result)) {
-                return draft
-            }
             // fnOrValue is a funtion that returned an object, not used the draft
             if (typeof result === 'object' && !isDraft(result)) {
                 return rawReturn(result)
             }
-
             return draft
         })
         // Return response when fnOrValues is a function
