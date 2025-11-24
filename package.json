@@ -1,6 +1,6 @@
 {
   "name": "react-set-signal",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A lightweight React library that brings the power of Preact Signals to React applications with enhanced features and an intuitive API.",
   "keywords": [
     "react",
