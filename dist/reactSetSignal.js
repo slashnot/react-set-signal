@@ -1,36 +1,36 @@
-import { useMemo as f, useCallback as r, useSyncExternalStore as a } from "react";
-import { signal as l, effect as p } from "@preact/signals-core";
-import { Computed as E, Effect as d, Signal as j, batch as w, computed as D, effect as M, signal as q, untracked as z } from "@preact/signals-core";
-import { create as m, isDraft as u, rawReturn as v } from "mutative";
+import { useMemo as i, useCallback as r, useSyncExternalStore as u } from "react";
+import { signal as f, effect as a } from "@preact/signals-core";
+import { Computed as C, Effect as E, Signal as j, batch as w, computed as D, effect as M, signal as q, untracked as z } from "@preact/signals-core";
+import { create as l, isDraft as m, rawReturn as v } from "mutative";
 export * from "mutative";
-const S = (e, t) => typeof t == "function" ? m(e.value, (n) => {
-  const o = t(n);
-  return u(o) ? n : typeof o == "object" && !u(o) ? v(o) : n;
+const S = (e, t) => typeof t == "function" ? l(e.value, (s) => {
+  const n = t(s);
+  return typeof n > "u" || m(n) ? s : typeof n == "object" ? v(n) : n;
 }) : t, F = (e, t) => (e.value = S(e, t), e.value), b = (e) => {
-  const t = l(e);
-  return t.set = (s) => F(t, s), t;
-}, k = (e) => {
-  const t = f(() => b(e), []), s = r(() => t.value, [t]), n = () => t.peek(), o = r((i) => p(() => {
-    i(t.value);
+  const t = f(e);
+  return t.set = (o) => F(t, o), t;
+}, g = (e) => {
+  const t = i(() => b(e), []), o = r(() => t.value, [t]), s = () => t.peek(), n = r((p) => a(() => {
+    p(t.value);
   }), [t]);
-  return [a(
+  return [u(
+    n,
     o,
-    s,
-    n
+    s
   ), t.set];
-}, x = (e) => {
-  const t = r(() => e.value, [e]), s = () => e.peek(), n = r((c) => p(() => {
+}, k = (e) => {
+  const t = r(() => e.value, [e]), o = () => e.peek(), s = r((c) => a(() => {
     c(e.value);
   }), [e]);
-  return a(
-    n,
+  return u(
+    s,
     t,
-    s
+    o
   );
 };
 export {
-  E as Computed,
-  d as Effect,
+  C as Computed,
+  E as Effect,
   j as Signal,
   w as batch,
   D as computed,
@@ -38,7 +38,7 @@ export {
   M as effect,
   q as signal,
   z as untracked,
-  k as useReactive,
-  x as useReactiveSignal
+  g as useReactive,
+  k as useReactiveSignal
 };
 //# sourceMappingURL=reactSetSignal.js.map
