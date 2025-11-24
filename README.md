@@ -9,6 +9,7 @@ A lightweight React library that brings the power of [Preact Signals](https://pr
 - ⚡ **Minimal Re-renders** - Components only re-render when their specific signal values change
 - 🪝 **React Hooks Integration** - Seamless integration with React's hooks ecosystem
 - 📦 **Tiny Bundle Size** - Minimal overhead, maximum performance
+- 🔷 **TypeScript Support** - Full type definitions included for excellent IDE autocompletion
 
 ## Installation
 

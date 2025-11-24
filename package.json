@@ -20,9 +20,19 @@
   "email": "slashnot84@gmail.com",
   "homepage": "https://slashnot.github.io/react-set-signal",
   "main": "./dist/reactSetSignal.js",
+  "types": "./index.d.ts",
+  "files": [
+    "dist",
+    "hooks",
+    "utils",
+    "index.js",
+    "index.d.ts",
+    "*.d.ts"
+  ],
   "license": "ISC",
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": {
         "production": "./dist/reactSetSignal.js",
         "default": "./index.js"
@@ -30,7 +40,8 @@
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && pnpm build:types",
+    "build:types": "tsc --declaration --emitDeclarationOnly --allowJs --outDir . index.js hooks/**/*.js utils/**/*.js",
     "predeploy": "cd examples/react-set-signal-example && pnpm run build",
     "deploy": "npx gh-pages -d examples/react-set-signal-example/dist",
     "test": "vitest run",
@@ -55,8 +66,11 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/react-hooks": "^8.0.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
     "@vitest/ui": "4.0.13",
     "jsdom": "^27.2.0",
+    "typescript": "^5.9.3",
     "vite": "^7.0.5",
     "vitest": "^4.0.13"
   }
