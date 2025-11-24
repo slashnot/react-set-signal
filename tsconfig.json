@@ -13,6 +13,6 @@
     "declarationMap": true,
     "noEmit": true
   },
-  "include": ["*.ts", "hooks/**/*.ts", "utils/**/*.ts"],
-  "exclude": ["node_modules", "dist", "examples"]
+  "include": ["*.d.ts", "**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "examples", "tests"]
 }

@@ -40,8 +40,7 @@
     }
   },
   "scripts": {
-    "build": "vite build && pnpm build:types",
-    "build:types": "tsc --declaration --emitDeclarationOnly --allowJs --outDir . index.js hooks/**/*.js utils/**/*.js",
+    "build": "vite build",
     "predeploy": "cd examples/react-set-signal-example && pnpm run build",
     "deploy": "npx gh-pages -d examples/react-set-signal-example/dist",
     "test": "vitest run",
