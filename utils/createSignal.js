@@ -18,7 +18,7 @@ export const getSignalValue = ($signal, fnOrValue) => {
                 return rawReturn(result)
             }
 
-            return draft
+            return result
         })
         // Return response when fnOrValues is a function
         return mutationResponse
